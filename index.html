@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>maydolist.com - Your Gentle May-Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #050509;
+            --bg-elevated: #090914;
+            --border-soft: #262637;
+            --border-strong: #3c3c55;
+            --text-main: #f5f5ff;
+            --text-muted: #9b9bb5;
+            --accent: rgba(255, 217, 39, 0.87);
+            --accent-soft: rgba(76, 141, 255, 0.18);
+        }
+
+        body {
+            padding-top: 72px;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .navbar-dark {
+            border-bottom: 1px solid var(--border-soft);
+            background: rgba(5, 5, 15, 0.98) !important;
+            backdrop-filter: blur(16px);
+        }
+
+        .hero {
+            background: radial-gradient(circle at top left, rgba(76,141,255,0.18), transparent 55%),
+            radial-gradient(circle at top right, rgba(122,92,255,0.16), transparent 55%);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            color: var(--text-muted);
+            max-width: 34rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+        .btn-primary:hover {
+            background-color: rgba(204, 171, 14, 0.87);
+            border-color: rgba(163, 140, 28, 0.87);
+        }
+        .btn-outline-secondary {
+            border-color: var(--border-strong);
+            color: var(--text-main);
+            background: transparent;
+        }
+        .btn-outline-secondary:hover {
+            background-color: var(--border-soft);
+            color: var(--text-main);
+        }
+
+        .card-dark {
+            background-color: var(--bg-elevated);
+            border: 1px solid var(--border-soft);
+            border-radius: 0;
+        }
+
+        .grid-section {
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .grid-row {
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .grid-cell {
+            border-right: 1px solid var(--border-soft);
+            padding: 2rem 1.75rem;
+            height: 100%;
+        }
+
+        .grid-cell:last-child {
+            border-right: none;
+        }
+
+        .feature-icon {
+            width: 2.3rem;
+            height: 2.3rem;
+            border-radius: 999px;
+            border: 1px solid var(--border-strong);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--accent);
+            background-color: rgba(76, 141, 255, 0.06);
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: .75rem;
+            color: var(--text-muted);
+        }
+
+        .text-muted-custom {
+            color: var(--text-muted) !important;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-elevated);
+            border: 1px solid var(--border-soft);
+            border-radius: 0;
+            padding: 1.75rem;
+            height: 100%;
+        }
+
+        .badge-dark-soft {
+            background-color: var(--accent-soft);
+            border: 1px solid var(--border-strong);
+            color: var(--accent);
+            border-radius: 999px;
+            font-weight: 500;
+        }
+
+        .newsletter-box {
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+            background: radial-gradient(circle at top, rgba(76,141,255,0.12), transparent 60%);
+        }
+
+        .form-control {
+            background-color: #050510;
+            border-color: var(--border-strong);
+            color: var(--text-main);
+            border-radius: 0;
+        }
+        .form-control:focus {
+            background-color: #050510;
+            color: var(--text-main);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 .2rem rgba(76,141,255,.25);
+        }
+
+        footer {
+            border-top: 1px solid var(--border-soft);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        a.nav-link {
+            color: var(--text-muted);
+        }
+        a.nav-link.active,
+        a.nav-link:hover {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            maydolist.com
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#about">What is it?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#benefits">Why it’s different</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#newsletter">Newsletter</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero py-5">
+    <div class="container py-4">
+        <div class="row align-items-stretch">
+            <div class="col-lg-7 border-end border-1 border-opacity-50" style="border-color: var(--border-soft) !important;">
+                <div class="h-100 d-flex flex-column justify-content-center pe-lg-5">
+                    <div class="section-label mb-3">may‑do list, not must‑do list</div>
+                    <h1 class="display-5 fw-bold mb-3 hero-title">
+                        The <span>may‑do list</span> that respects your energy.
+                    </h1>
+                    <p class="hero-sub mb-4">
+                        Organize everything you could do, and let maydolist.com help you choose what actually deserves your attention
+                        based on priority, urgency and difficulty — with no guilt for what you skip.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mb-4">
+                        <span class="badge badge-dark-soft px-3 py-2">Priority ranking</span>
+                        <span class="badge badge-dark-soft px-3 py-2">Difficulty & urgency</span>
+                        <span class="badge badge-dark-soft px-3 py-2">Shared prioritization</span>
+                    </div>
+                    <div class="d-flex flex-wrap gap-3 mb-2">
+                        <a href="#newsletter" class="btn btn-primary btn-lg">Join the beta waitlist</a>
+                        <a href="#about" class="btn btn-outline-secondary btn-lg">See how it works</a>
+                    </div>
+                    <p class="small text-muted-custom mb-0">
+                        No deadlines required. No “overdue” labels. Just a gentle, honest view of your options.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5 mt-4 mt-lg-0">
+                <div class="card-dark h-100 d-flex flex-column">
+                    <div class="p-4 border-bottom" style="border-color: var(--border-soft) !important;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="section-label">Example may‑do list</span>
+                            <span class="badge badge-dark-soft">Today’s energy: medium</span>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <div class="row text-muted-custom small fw-semibold mb-2">
+                            <div class="col-6">Task</div>
+                            <div class="col-2 text-center">Priority</div>
+                            <div class="col-2 text-center">Urgency</div>
+                            <div class="col-2 text-center">Difficulty</div>
+                        </div>
+                        <div class="border-top border-bottom" style="border-color: var(--border-soft) !important;">
+                            <div class="py-2 row align-items-center">
+                                <div class="col-6">Reply to client emails</div>
+                                <div class="col-2 text-center"><span class="badge bg-success">High</span></div>
+                                <div class="col-2 text-center"><span class="badge bg-warning text-dark">Soon</span></div>
+                                <div class="col-2 text-center"><span class="badge bg-secondary">Easy</span></div>
+                            </div>
+                            <div class="border-top" style="border-color: var(--border-soft) !important;"></div>
+                            <div class="py-2 row align-items-center">
+                                <div class="col-6">Work on side project</div>
+                                <div class="col-2 text-center"><span class="badge bg-primary">Medium</span></div>
+                                <div class="col-2 text-center"><span class="badge bg-secondary">Later</span></div>
+                                <div class="col-2 text-center"><span class="badge bg-warning text-dark">Hard</span></div>
+                            </div>
+                            <div class="border-top" style="border-color: var(--border-soft) !important;"></div>
+                            <div class="py-2 row align-items-center">
+                                <div class="col-6">Sort old photos</div>
+                                <div class="col-2 text-center"><span class="badge bg-secondary">Low</span></div>
+                                <div class="col-2 text-center"><span class="badge bg-secondary">Anytime</span></div>
+                                <div class="col-2 text-center"><span class="badge bg-success">Light</span></div>
+                            </div>
+                        </div>
+                        <p class="small text-muted-custom mt-3 mb-0">
+                            maydolist suggests a small set of “good next steps” instead of an endless list that screams for attention.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-5 grid-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 grid-cell">
+                <div class="section-label mb-2">Overview</div>
+                <h2 class="fw-bold mb-3">What is maydolist.com?</h2>
+                <p class="text-muted-custom">
+                    maydolist.com is a may‑do list: a task manager for people who refuse to be bullied by their to‑dos.
+                    Instead of pretending you’ll do everything, you track what you could do and let the app help you choose
+                    your next move.
+                </p>
+                <p class="text-muted-custom mb-0">
+                    Every task gets three simple attributes: importance, urgency and difficulty.
+                    No strict due dates required. You can still add them if you want, but the core of the experience is about
+                    ranking possibilities, not punishing yourself.
+                </p>
+            </div>
+            <div class="col-lg-6 grid-cell">
+                <div class="section-label mb-2">Collaboration</div>
+                <h2 class="fw-bold mb-3">Invite others to prioritize with you</h2>
+                <p class="text-muted-custom">
+                    Share a list with your partner, your friends, your coach or your team and ask them to rank what matters most.
+                    They can vote, re‑order or comment on tasks so you don’t have to decide alone.
+                </p>
+                <p class="text-muted-custom mb-0">
+                    From household tasks to side projects and team backlogs, maydolist turns a private mental load into a
+                    transparent conversation — without turning your life into a brutal sprint board.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits (grid-like) -->
+<section id="benefits" class="py-5 grid-section">
+    <div class="container">
+        <div class="row grid-row">
+            <div class="col-md-4 grid-cell">
+                <div class="feature-icon mb-3">✓</div>
+                <h5 class="fw-bold mb-2">From obligation to option</h5>
+                <p class="text-muted-custom mb-0">
+                    Classic to‑do apps assume everything must be done. maydolist is built for may‑dos:
+                    tasks you can consciously accept, postpone or drop — without a wall of red “overdue” labels.
+                </p>
+            </div>
+            <div class="col-md-4 grid-cell">
+                <div class="feature-icon mb-3">★</div>
+                <h5 class="fw-bold mb-2">Difficulty & urgency sliders</h5>
+                <p class="text-muted-custom mb-0">
+                    Rate difficulty and urgency instead of enforcing artificial deadlines.
+                    On low‑energy days, filter for “easy but important” tasks and still make progress without burning out.
+                </p>
+            </div>
+            <div class="col-md-4 grid-cell">
+                <div class="feature-icon mb-3">👥</div>
+                <h5 class="fw-bold mb-2">Shared ranking</h5>
+                <p class="text-muted-custom mb-0">
+                    Let collaborators help you decide. Invite them to rearrange the list or vote on what matters.
+                    You keep control, they bring perspective.
+                </p>
+            </div>
+        </div>
+        <div class="row grid-row">
+            <div class="col-md-4 grid-cell">
+                <div class="feature-icon mb-3">🧘</div>
+                <h5 class="fw-bold mb-2">Less stress, more clarity</h5>
+                <p class="text-muted-custom mb-0">
+                    The app surfaces a small, calm set of suggested “next best actions” instead of a noisy backlog.
+                    Your focus narrows, your anxiety drops.
+                </p>
+            </div>
+            <div class="col-md-4 grid-cell">
+                <div class="feature-icon mb-3">⚡</div>
+                <h5 class="fw-bold mb-2">Energy‑aware planning</h5>
+                <p class="text-muted-custom mb-0">
+                    Match tasks to your current energy level. Maydolist becomes a lightweight decision helper,
+                    not another boss in your pocket.
+                </p>
+            </div>
+            <div class="col-md-4 grid-cell">
+                <div class="feature-icon mb-3">📊</div>
+                <h5 class="fw-bold mb-2">Honest overview</h5>
+                <p class="text-muted-custom mb-0">
+                    See at a glance which items are high‑priority, urgent and realistically doable today —
+                    and which ones you can consciously push to “maybe someday”.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col">
+                <div class="section-label mb-2">Early impressions</div>
+                <h2 class="fw-bold">What early users say</h2>
+                <p class="text-muted-custom mb-0">
+                    Designed for humans with more ideas than hours in the day.
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p class="mb-3">
+                        “For the first time my task app doesn’t yell at me. maydolist shows me three or four realistic options
+                        and I just pick one. That’s all I need.”
+                    </p>
+                    <p class="mb-0 text-muted-custom">— Emma, freelance designer</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p class="mb-3">
+                        “I let my partner reorder our shared list. Suddenly the invisible mental load is on a screen
+                        and we decide together what matters this week.”
+                    </p>
+                    <p class="mb-0 text-muted-custom">— Alex, busy parent</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p class="mb-3">
+                        “I ask my team to rate difficulty and urgency on tasks. We spot quick wins instantly
+                        and nobody feels crushed by an infinite backlog anymore.”
+                    </p>
+                    <p class="mb-0 text-muted-custom">— Lina, product lead</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section id="newsletter" class="py-5 newsletter-box">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8 text-center">
+                <div class="section-label mb-2">Stay in the loop</div>
+                <h2 class="fw-bold mb-3">Get notified when maydolist.com opens</h2>
+                <p class="text-muted-custom mb-0">
+                    Leave your email to receive a single invite when the private beta is ready,
+                    plus a handful of short tips on building a kinder relationship with your tasks.
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <!-- Newsletter form only -->
+                <form class="row g-2">
+                    <div class="col-12 col-sm-8">
+                        <label for="newsletterEmail" class="visually-hidden">Email address</label>
+                        <input type="email" class="form-control form-control-lg" id="newsletterEmail"
+                               placeholder="Enter your email" required>
+                    </div>
+                    <div class="col-12 col-sm-4 d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            Join the waitlist
+                        </button>
+                    </div>
+                </form>
+                <p class="small text-muted-custom mt-2 text-center">
+                    No noise, no tracking, just a launch email and occasional product updates.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-3">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <span>© <span id="year"></span> maydolist.com</span>
+        <span>Built for may‑dos, not must‑dos.</span>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
